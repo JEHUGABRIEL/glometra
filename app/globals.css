@@ -2465,6 +2465,214 @@ html.reveal-ready [data-reveal].is-in {
   }
 }
 
+/* ---------- 404 ---------- */
+
+.bare-page {
+  /* The font variables are scoped to this element (no root layout here), so the
+     derived families must be re-declared at the same level to resolve. */
+  --font-display: var(--font-archivo), "Helvetica Neue", Arial, sans-serif;
+  --font-body: var(--font-inter), "Helvetica Neue", Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  font-family: var(--font-body);
+}
+
+.bare-page__head {
+  padding-block: 26px;
+}
+
+.not-found {
+  padding: clamp(56px, 9vw, 108px) 0 clamp(64px, 10vw, 128px);
+  text-align: center;
+}
+
+.not-found__code {
+  margin: 0 0 20px;
+  color: var(--blue-soft);
+  font-family: var(--font-display);
+  font-size: clamp(76px, 14vw, 150px);
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  line-height: 0.88;
+}
+
+.not-found__title {
+  margin: 0;
+  color: var(--navy);
+  font-size: clamp(28px, 4.4vw, 44px);
+  line-height: 1.1;
+}
+
+.not-found__subtitle {
+  margin: 10px 0 0;
+  color: var(--navy);
+  font-family: var(--font-display);
+  font-size: clamp(20px, 3vw, 30px);
+  font-weight: 400;
+  opacity: 0.62;
+}
+
+.not-found__text {
+  max-width: 52ch;
+  margin: 24px auto 0;
+}
+
+.not-found__text p {
+  margin: 0;
+  font-size: 15px;
+}
+
+.not-found__text p + p {
+  margin-top: 6px;
+  color: var(--muted);
+}
+
+.not-found__langs {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+  max-width: 780px;
+  margin: 52px auto 0;
+  text-align: left;
+}
+
+.not-found__lang {
+  padding: 26px 28px 30px;
+  border: 1px solid var(--line);
+  border-radius: 3px;
+}
+
+.not-found__lang .eyebrow {
+  margin-bottom: 20px;
+}
+
+.not-found__actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px 26px;
+}
+
+.not-found__link {
+  margin-top: 0;
+}
+
+/* ---------- Loading skeleton ---------- */
+
+.skeleton__hero {
+  background: var(--navy);
+}
+
+.skeleton__hero-inner {
+  padding-block: clamp(56px, 8vw, 104px) clamp(60px, 8.5vw, 112px);
+}
+
+.skeleton__body {
+  padding-block: clamp(48px, 6vw, 80px) clamp(56px, 7vw, 96px);
+}
+
+.skeleton__bar {
+  display: block;
+  border-radius: 3px;
+  background-color: var(--paper);
+  background-image: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.9) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  background-size: 220% 100%;
+  background-repeat: no-repeat;
+  animation: skeleton-shimmer 1.5s linear infinite;
+}
+
+.skeleton__bar--on-dark {
+  background-color: rgba(255, 255, 255, 0.1);
+  background-image: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.16) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+}
+
+.skeleton__bar--eyebrow {
+  width: 130px;
+  height: 10px;
+}
+
+.skeleton__bar--title {
+  width: min(560px, 82%);
+  height: clamp(30px, 4.6vw, 46px);
+  margin-top: 22px;
+}
+
+.skeleton__bar--title-short {
+  width: min(360px, 58%);
+  height: clamp(30px, 4.6vw, 46px);
+  margin-top: 14px;
+}
+
+.skeleton__bar--lead {
+  width: min(480px, 74%);
+  height: 14px;
+  margin-top: 26px;
+}
+
+.skeleton__bar--h2 {
+  width: min(420px, 70%);
+  height: clamp(22px, 3.2vw, 30px);
+  margin-top: 16px;
+}
+
+.skeleton__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+  margin-top: 42px;
+}
+
+.skeleton__card {
+  display: block;
+  height: 200px;
+  border-radius: 3px;
+  background-color: var(--paper);
+  background-image: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.9) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  background-size: 220% 100%;
+  background-repeat: no-repeat;
+  animation: skeleton-shimmer 1.5s linear infinite;
+}
+
+@keyframes skeleton-shimmer {
+  from {
+    background-position: 120% 0;
+  }
+  to {
+    background-position: -120% 0;
+  }
+}
+
+@media (max-width: 760px) {
+  .not-found__langs {
+    grid-template-columns: 1fr;
+  }
+
+  .skeleton__grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .skeleton__card {
+    height: 150px;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
