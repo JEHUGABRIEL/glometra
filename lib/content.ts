@@ -10,9 +10,6 @@ const en = {
     contact: "Contact",
   },
   ui: {
-    previousSlide: "Previous slide",
-    nextSlide: "Next slide",
-    goToSlide: "Go to slide",
     contactUs: "Contact us",
     learnMore: "Learn more",
     ourServices: "Our services",
@@ -155,10 +152,11 @@ const en = {
       imageAlt: "Aboubakar Traore, Founder and CEO of Glometra Inc",
     },
     cta: {
-      eyebrow: "Write to us",
+      eyebrow: "Contact",
       title: "Discuss a supply or offtake requirement",
       text: "Tell us the product, the volume and the delivery basis. We will respond with a clear indication of whether we can help.",
       button: "Contact us",
+      mailButton: "Write to us",
     },
   },
   about: {
@@ -652,9 +650,6 @@ const fr: Content = {
     contact: "Contact",
   },
   ui: {
-    previousSlide: "Diapositive précédente",
-    nextSlide: "Diapositive suivante",
-    goToSlide: "Aller à la diapositive",
     contactUs: "Nous contacter",
     learnMore: "En savoir plus",
     ourServices: "Nos services",
@@ -798,10 +793,11 @@ const fr: Content = {
       imageAlt: "Aboubakar Traore, fondateur et PDG de Glometra Inc",
     },
     cta: {
-      eyebrow: "Nous écrire",
+      eyebrow: "Contact",
       title: "Discuter d'un besoin d'approvisionnement ou d'enlèvement",
       text: "Indiquez-nous le produit, le volume et la base de livraison. Nous vous répondrons avec une indication claire de notre capacité à aider.",
       button: "Nous contacter",
+      mailButton: "Nous écrire",
     },
   },
   about: {

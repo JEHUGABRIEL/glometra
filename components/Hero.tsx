@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useState, type FocusEvent } from "react";
+import { useEffect, useState } from "react";
 import { content } from "@/lib/content";
 import { path, type Locale } from "@/lib/site";
 import { IconArrow } from "./Icons";
@@ -41,14 +41,6 @@ export function Hero({ locale, slides, facts }: HeroProps) {
     return () => window.clearInterval(timer);
   }, [paused, count, index]);
 
-  const goTo = (next: number) => setIndex((next + count) % count);
-
-  const handleBlur = (event: FocusEvent<HTMLElement>) => {
-    if (!event.currentTarget.contains(event.relatedTarget as Node | null)) {
-      setPaused(false);
-    }
-  };
-
   return (
     <section
       className="hero"
@@ -56,8 +48,6 @@ export function Hero({ locale, slides, facts }: HeroProps) {
       aria-label={t.ui.home}
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
-      onFocus={() => setPaused(true)}
-      onBlur={handleBlur}
     >
       <div className="hero__media">
         {slides.map((slide, slideIndex) => (
@@ -110,44 +100,10 @@ export function Hero({ locale, slides, facts }: HeroProps) {
           </Link>
         </div>
 
-        <div className="hero__controls">
-          <p className="hero__count" aria-hidden="true">
-            <span>{String(index + 1).padStart(2, "0")}</span>
-            <span className="hero__count-total"> / {String(count).padStart(2, "0")}</span>
-          </p>
-
-          <div className="hero__dots">
-            {slides.map((slide, slideIndex) => (
-              <button
-                key={slide.image}
-                type="button"
-                className={`hero__dot${slideIndex === index ? " is-active" : ""}`}
-                aria-label={`${t.ui.goToSlide} ${slideIndex + 1}`}
-                aria-current={slideIndex === index}
-                onClick={() => goTo(slideIndex)}
-              />
-            ))}
-          </div>
-
-          <div className="hero__arrows">
-            <button
-              type="button"
-              className="hero__arrow hero__arrow--prev"
-              aria-label={t.ui.previousSlide}
-              onClick={() => goTo(index - 1)}
-            >
-              <IconArrow />
-            </button>
-            <button
-              type="button"
-              className="hero__arrow"
-              aria-label={t.ui.nextSlide}
-              onClick={() => goTo(index + 1)}
-            >
-              <IconArrow />
-            </button>
-          </div>
-        </div>
+        <p className="hero__count" aria-hidden="true">
+          <span>{String(index + 1).padStart(2, "0")}</span>
+          <span className="hero__count-total"> / {String(count).padStart(2, "0")}</span>
+        </p>
       </div>
 
       <div className="shell">

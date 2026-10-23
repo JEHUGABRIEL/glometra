@@ -635,14 +635,8 @@ figure {
   margin-top: 30px;
 }
 
-.hero__controls {
-  display: flex;
-  align-items: center;
-  gap: 22px;
-  margin-top: 34px;
-}
-
 .hero__count {
+  margin-top: 34px;
   color: rgba(255, 255, 255, 0.5);
   font-family: var(--font-display);
   font-size: 12px;
@@ -656,75 +650,6 @@ figure {
 
 .hero__count-total {
   margin-left: 2px;
-}
-
-.hero__dots {
-  display: flex;
-  align-items: center;
-  gap: 4px;
-}
-
-.hero__dot {
-  position: relative;
-  width: 26px;
-  height: 18px;
-  padding: 0;
-  border: 0;
-  background: transparent;
-}
-
-.hero__dot::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 50%;
-  height: 2px;
-  transform: translateY(-50%);
-  background: rgba(255, 255, 255, 0.3);
-  transition: background-color 0.25s var(--ease);
-}
-
-.hero__dot:hover::after {
-  background: rgba(255, 255, 255, 0.6);
-}
-
-.hero__dot.is-active::after {
-  background: #fff;
-}
-
-.hero__arrows {
-  display: flex;
-  gap: 8px;
-  margin-left: auto;
-}
-
-.hero__arrow {
-  display: grid;
-  place-items: center;
-  width: 40px;
-  height: 40px;
-  border: 1px solid rgba(255, 255, 255, 0.28);
-  border-radius: 50%;
-  background: transparent;
-  color: #fff;
-  transition:
-    background-color 0.25s var(--ease),
-    border-color 0.25s var(--ease);
-}
-
-.hero__arrow:hover {
-  background: rgba(255, 255, 255, 0.1);
-  border-color: rgba(255, 255, 255, 0.6);
-}
-
-.hero__arrow svg {
-  width: 16px;
-  height: 16px;
-}
-
-.hero__arrow--prev svg {
-  transform: rotate(180deg);
 }
 
 .hero__facts {
@@ -1263,21 +1188,10 @@ figure {
 
 .cta-band__actions {
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 18px;
-}
-
-.cta-band__mail {
-  color: rgba(255, 255, 255, 0.7);
-  font-size: 13px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
-  padding-bottom: 2px;
-}
-
-.cta-band__mail:hover {
-  color: #fff;
-  border-color: #fff;
+  flex-direction: row;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 14px;
 }
 
 /* ---------- Page hero ---------- */
@@ -2433,17 +2347,8 @@ html.reveal-ready [data-reveal].is-in {
     font-size: clamp(2.35rem, 10.5vw, 3.2rem);
   }
 
-  .hero__controls {
-    gap: 14px;
-    margin-top: 26px;
-  }
-
-  .hero__arrow {
-    width: 36px;
-    height: 36px;
-  }
-
   .hero__count {
+    margin-top: 26px;
     font-size: 11px;
   }
 

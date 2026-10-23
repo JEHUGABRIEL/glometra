@@ -31,8 +31,9 @@ export function CtaBand({ locale }: { locale: Locale }) {
             {t.home.cta.button}
             <IconArrow className="btn__icon" />
           </Link>
-          <a className="cta-band__mail" href={`mailto:${site.email}`}>
-            {site.email}
+          <a className="btn btn--ghost-light" href={`mailto:${site.email}`}>
+            {t.home.cta.mailButton}
+            <IconArrow className="btn__icon" />
           </a>
         </div>
       </div>
