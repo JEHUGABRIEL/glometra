@@ -27,7 +27,7 @@ export const site = {
   legalName: "GLOMETRA INC",
   name: "Glometra Inc",
   url: "https://www.glometra.com",
-  email: "contact@glometra.com",
+  email: "info@glometra.com",
   city: "Houston",
   region: "Texas",
   country: "United States",

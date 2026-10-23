@@ -44,7 +44,7 @@ address instead. Nothing is stored in a database.
 
 ## Content to confirm before launch
 
-- Email address: currently `contact@glometra.com` (set in `lib/site.ts`).
+- Email address: currently `info@glometra.com` (set in `lib/site.ts`).
 - Domain: currently `https://www.glometra.com` (set in `lib/site.ts`).
 - Texas business registration number and registered agent are intentionally not
   published; the site states Delaware incorporation and Texas registration only.

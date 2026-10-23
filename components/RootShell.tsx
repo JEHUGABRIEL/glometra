@@ -2,9 +2,11 @@ import type { ReactNode } from "react";
 import { content } from "@/lib/content";
 import { display, sans } from "@/lib/fonts";
 import { site, type Locale } from "@/lib/site";
+import { FloatingContact } from "./FloatingContact";
 import { Footer } from "./Footer";
 import { Header } from "./Header";
 import { JsonLd } from "./JsonLd";
+import { QueryProvider } from "./QueryProvider";
 import { Reveal } from "./Reveal";
 
 const revealScript = `(function(){try{if(window.matchMedia('(prefers-reduced-motion: reduce)').matches)return;if(!('IntersectionObserver' in window))return;document.documentElement.classList.add('reveal-ready');}catch(e){}})();`;
@@ -67,8 +69,11 @@ export function RootShell({
           {t.ui.skip}
         </a>
         <Header locale={locale} />
-        <main id="main">{children}</main>
+        <main id="main">
+          <QueryProvider>{children}</QueryProvider>
+        </main>
         <Footer locale={locale} />
+        <FloatingContact locale={locale} />
         <Reveal />
         <JsonLd data={businessData(locale)} />
       </body>

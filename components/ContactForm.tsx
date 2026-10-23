@@ -1,52 +1,74 @@
 "use client";
 
-import { useState, type FormEvent } from "react";
+import { useMutation } from "@tanstack/react-query";
+import { useRef, type FormEvent } from "react";
 import { content } from "@/lib/content";
 import { site, type Locale } from "@/lib/site";
 import { IconArrow } from "./Icons";
 
-type Status = "idle" | "sending" | "success" | "error";
+type ContactPayload = {
+  name: string;
+  company: string;
+  email: string;
+  phone: string;
+  role: string;
+  message: string;
+  consent: boolean;
+  locale: Locale;
+  website: string;
+};
+
+async function submitContact(payload: ContactPayload) {
+  const response = await fetch("/api/contact", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(payload),
+  });
+
+  if (!response.ok) throw new Error("Request failed");
+  return response.json();
+}
 
 export function ContactForm({ locale }: { locale: Locale }) {
   const f = content[locale].contact.form;
-  const [status, setStatus] = useState<Status>("idle");
+  const formRef = useRef<HTMLFormElement>(null);
 
-  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
+  const mutation = useMutation({
+    mutationFn: submitContact,
+    retry: 2,
+    onSuccess: () => formRef.current?.reset(),
+  });
+
+  function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     const form = event.currentTarget;
     const data = new FormData(form);
 
     if (!form.reportValidity()) return;
 
-    setStatus("sending");
-
-    try {
-      const response = await fetch("/api/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          name: data.get("name"),
-          company: data.get("company"),
-          email: data.get("email"),
-          phone: data.get("phone"),
-          role: data.get("role"),
-          message: data.get("message"),
-          consent: data.get("consent") === "on",
-          locale,
-          website: data.get("website"),
-        }),
-      });
-
-      if (!response.ok) throw new Error("Request failed");
-      form.reset();
-      setStatus("success");
-    } catch {
-      setStatus("error");
-    }
+    mutation.mutate({
+      name: String(data.get("name") ?? ""),
+      company: String(data.get("company") ?? ""),
+      email: String(data.get("email") ?? ""),
+      phone: String(data.get("phone") ?? ""),
+      role: String(data.get("role") ?? ""),
+      message: String(data.get("message") ?? ""),
+      consent: data.get("consent") === "on",
+      locale,
+      website: String(data.get("website") ?? ""),
+    });
   }
 
+  const status = mutation.isPending
+    ? "sending"
+    : mutation.isSuccess
+      ? "success"
+      : mutation.isError
+        ? "error"
+        : "idle";
+
   return (
-    <form className="contact-form" onSubmit={handleSubmit} noValidate={false}>
+    <form className="contact-form" onSubmit={handleSubmit} ref={formRef} noValidate={false}>
       <div className="contact-form__row">
         <div className="field">
           <label htmlFor="cf-name">

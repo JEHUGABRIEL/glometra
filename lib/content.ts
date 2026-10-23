@@ -502,7 +502,7 @@ const en = {
         {
           heading: "Your rights",
           paragraphs: [
-            "Subject to applicable law, you may request access to your personal data, ask for it to be corrected or deleted, object to certain processing, or withdraw consent. Requests can be sent to contact@glometra.com. We may need to verify your identity before responding.",
+            "Subject to applicable law, you may request access to your personal data, ask for it to be corrected or deleted, object to certain processing, or withdraw consent. Requests can be sent to info@glometra.com. We may need to verify your identity before responding.",
           ],
         },
         {
@@ -585,7 +585,7 @@ const en = {
         {
           heading: "Contact",
           paragraphs: [
-            "Questions about these terms can be sent to contact@glometra.com.",
+            "Questions about these terms can be sent to info@glometra.com.",
           ],
         },
       ],
@@ -630,7 +630,7 @@ const en = {
         {
           heading: "Contact",
           paragraphs: [
-            "For clarification on any statement published here, write to contact@glometra.com.",
+            "For clarification on any statement published here, write to info@glometra.com.",
           ],
         },
       ],
@@ -1143,7 +1143,7 @@ const fr: Content = {
         {
           heading: "Vos droits",
           paragraphs: [
-            "Sous réserve du droit applicable, vous pouvez demander l'accès à vos données personnelles, leur rectification ou leur suppression, vous opposer à certains traitements ou retirer votre consentement. Les demandes peuvent être adressées à contact@glometra.com. Nous pouvons avoir besoin de vérifier votre identité avant de répondre.",
+            "Sous réserve du droit applicable, vous pouvez demander l'accès à vos données personnelles, leur rectification ou leur suppression, vous opposer à certains traitements ou retirer votre consentement. Les demandes peuvent être adressées à info@glometra.com. Nous pouvons avoir besoin de vérifier votre identité avant de répondre.",
           ],
         },
         {
@@ -1226,7 +1226,7 @@ const fr: Content = {
         {
           heading: "Contact",
           paragraphs: [
-            "Les questions relatives à ces conditions peuvent être adressées à contact@glometra.com.",
+            "Les questions relatives à ces conditions peuvent être adressées à info@glometra.com.",
           ],
         },
       ],
@@ -1271,7 +1271,7 @@ const fr: Content = {
         {
           heading: "Contact",
           paragraphs: [
-            "Pour toute précision sur une déclaration publiée ici, écrivez à contact@glometra.com.",
+            "Pour toute précision sur une déclaration publiée ici, écrivez à info@glometra.com.",
           ],
         },
       ],
