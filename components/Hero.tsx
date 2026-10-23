@@ -99,11 +99,6 @@ export function Hero({ locale, slides, facts }: HeroProps) {
             {t.ui.ourServices}
           </Link>
         </div>
-
-        <p className="hero__count" aria-hidden="true">
-          <span>{String(index + 1).padStart(2, "0")}</span>
-          <span className="hero__count-total"> / {String(count).padStart(2, "0")}</span>
-        </p>
       </div>
 
       <div className="shell">
